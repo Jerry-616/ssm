@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ProductMapper">
+
+    <!--增加一个Product-->
+    <insert id="addProduct" parameterType="Product">
+        insert into ssm.product(productid,productname,price,sort,count)
+        values (#{productid},#{productname},#{price},#{sort},#{count})
+    </insert>
+
+    <!--按id删除Product-->
+    <delete id="deleteProductById" parameterType="int">
+        delete from ssm.product where productid=#{productid}
+    </delete>
+
+    <!--批量删除Product-->
+    <delete id="deleteSelect" parameterType="list">
+        delete from ssm.product where productid in
+        <foreach collection="list" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!--修改Product-->
+    <update id="updateProduct" parameterType="Product">
+        update ssm.product
+        set productname = #{productname}, price = #{price}, sort = #{sort}, count = #{count}
+        where productid = #{productid}
+    </update>
+
+    <!--根据id查询,返回一个Product-->
+    <select id="queryProductById" resultType="Product">
+        select * from ssm.product
+        where productid = #{productid}
+    </select>
+
+    <!--查询全部Product-->
+    <select id="queryAllProduct" resultType="Product">
+        SELECT * from ssm.product
+    </select>
+
+    <!--按名查询Product-->
+    <select id="queryProductByName" resultType="Product">
+        select * from ssm.product where productname = #{productname}
+    </select>
+</mapper>

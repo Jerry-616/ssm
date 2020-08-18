@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.UserMapper">
+
+    <!--注册用户-->
+    <insert id="addUser" parameterType="User">
+        insert into ssm.user(userid,username,password,sex,adress,phone)
+        values (#{userid},#{username},#{password},#{sex},#{adress},#{phone})
+    </insert>
+
+    <!--登录验证-->
+    <select id="login" resultType="User">
+        select * from ssm.user where username = #{username} and password = #{password}
+    </select>
+
+    <!--根据id删除一个User-->
+    <delete id="deleteUserById" parameterType="int">
+        delete from ssm.user where userid=#{userid}
+    </delete>
+
+    <!--批量删除User-->
+    <delete id="deleteSelect" parameterType="list">
+        delete from ssm.user where userid in
+        <foreach collection="list" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!--修改User-->
+    <update id="updateUser" parameterType="User">
+        update ssm.user
+        set username = #{username}, password = #{password}, sex = #{sex}, adress = #{adress},phone = #{phone}
+        where userid = #{userid}
+    </update>
+
+    <!--根据id查询,返回一个User-->
+    <select id="queryUserById" resultType="User">
+        select * from ssm.user
+        where userid = #{userid}
+    </select>
+
+    <!--查询全部User-->
+    <select id="queryAllUser" resultType="User">
+        SELECT * from ssm.user
+    </select>
+
+    <!--按名查询User-->
+    <select id="queryUserByName" resultType="User">
+        select * from ssm.user where username = #{username}
+    </select>
+</mapper>
