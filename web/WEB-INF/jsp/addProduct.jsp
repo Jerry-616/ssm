@@ -53,8 +53,9 @@
         </ol>
     </section>
         </section>
-
-        <form action="${pageContext.request.contextPath}/product/addProduct" method="post">
+        </form>
+        <form action="${pageContext.request.contextPath}/product/addProduct"
+              enctype="multipart/form-data" method="post">
             <section class="content">
                 <div class="panel panel-default">
                     <div class="panel-heading">商品信息</div>
@@ -92,23 +93,22 @@
                                    name="count" value="">
                         </div>
 
-                        <div class="col-md-2 title rowHeight">备注信息</div>
+                        <div class="col-md-2 title ">图片</div>
                         <div class="col-md-4 data">
-							<textarea class="form-control" placeholder="备注"
-                                      name="productDesc"></textarea>
+                            <input type="file" name="file" style="width:180px;"/>
                         </div>
-
                     </div>
                 </div>
                 <!--工具栏-->
                 <div class="box-tools text-center">
-                    <button type="submit" class="btn bg-maroon">保存</button>
+                    <button type="submit" class="btn bg-maroon">添加</button>
                     <button type="reset" class="btn bg-maroon">重置</button>
-                    <button type="button" class="btn bg-default"
+                    <button type="button" class="btn bg-purple"
                             onclick="history.back(-1);">返回</button>
                 </div>
                 </section>
         </form>
+
     </div>
 
     <!-- 底部导航 -->
@@ -194,6 +194,7 @@
             format : "yyyy-mm-dd hh:ii",
         });
     });
+
 </script>
 </body>
 </html>

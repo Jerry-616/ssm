@@ -94,11 +94,6 @@
                                    name="count" value="${product.getCount()}">
                         </div>
 
-                        <div class="col-md-2 title rowHeight">备注信息</div>
-                        <div class="col-md-4 data">
-							<textarea class="form-control" placeholder="备注"
-                                      name="productDesc"></textarea>
-                        </div>
                     </div>
                 </div>
                 <!--工具栏-->

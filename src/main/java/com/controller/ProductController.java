@@ -6,11 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/product")
@@ -27,15 +32,26 @@ public class ProductController {
         return "allProduct";
     }
 
-    //添加商品页面
+    //跳转添加商品页面
     @RequestMapping("/toAddProduct")
     public String toAddPaper() {
         return "addProduct";
     }
 
-    //添加商品请求
+    //添加商品
     @RequestMapping("/addProduct")
-    public String addProduct(Product product) {
+    public String addProduct(MultipartFile file, Product product)throws IOException {
+        //图片上传成功后，将图片的地址写到数据库
+        String filePath = "E:\\idea_workplace\\ssm\\web\\image";//路径
+        //获取原始图片的拓展名
+        String originalFilename = file.getOriginalFilename();
+        //新文件名
+        String newFileName = UUID.randomUUID()+originalFilename;
+        //封装上传文件位置全路径
+        File targetFile = new File(filePath,newFileName);
+        //把本地文件上传到封装上传文件位置的全路径
+        file.transferTo(targetFile);
+        product.setImage(newFileName);
         System.out.println(product);
         productService.addProduct(product);
         return "redirect:/product/allProduct";
@@ -86,5 +102,33 @@ public class ProductController {
         list.add(product);
         model.addAttribute("list", list);
         return "allProduct";
+    }
+
+    //文件（商品图）下载
+    @RequestMapping(value="/download")
+    public String downloads(HttpServletResponse response , HttpServletRequest request) throws Exception{
+        //图片地址
+        String path = "E:\\idea_workplace\\ssm\\web\\image";
+        String fileName = request.getParameter("filename");
+        //设置response 响应头
+        response.reset(); //设置页面不缓存,清空buffer
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("multipart/form-data");
+        response.setHeader("Content-Disposition",
+                "attachment;fileName="+ URLEncoder.encode(fileName, "UTF-8"));
+        File file = new File(path,fileName);
+        //读取文件--输入流
+        InputStream input=new FileInputStream(file);
+        //写出文件--输出流
+        OutputStream out = response.getOutputStream();
+        byte[] buff =new byte[1024];
+        int index=0;
+        while((index= input.read(buff))!= -1){
+            out.write(buff, 0, index);
+            out.flush();
+        }
+        out.close();
+        input.close();
+        return null;
     }
 }

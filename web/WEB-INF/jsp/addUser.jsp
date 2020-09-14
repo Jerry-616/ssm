@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="demo" uri="http://www.mydomain.com/sample" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,21 +60,21 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">用户信息</div>
                     <div class="row data-type">
-                        <div class="col-md-2 title">用户ID</div>
+                        <div class="col-md-2 title">用户ID<demo:star/></div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="userid"
-                                   placeholder="用户ID" value="">
+                                   placeholder="用户ID" value=""><demo:star/>
                         </div>
-                        <div class="col-md-2 title">用户名</div>
+                        <div class="col-md-2 title">用户名<demo:star/></div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="username"
-                                   placeholder="用户名" value="">
+                                   placeholder="用户名" value=""><demo:star/>
                         </div>
 
-                        <div class="col-md-2 title">密码</div>
+                        <div class="col-md-2 title">密码<demo:star/></div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" placeholder="密码"
-                                   name="password" value="">
+                                   name="password" value=""><demo:star/>
                         </div>
 
                         <div class="col-md-2 title">性别</div>
@@ -92,16 +93,11 @@
                                    name="adress" value="">
                         </div>
 
-                        <div class="col-md-2 title">电话</div>
+                        <div class="col-md-2 title">电话<demo:star/></div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" placeholder="电话"
                                    name="phone" value="">
-                        </div>
 
-                        <div class="col-md-2 title rowHeight">备注信息</div>
-                        <div class="col-md-4 data">
-							<textarea class="form-control" placeholder="备注"
-                                      name="userDesc"></textarea>
                         </div>
 
                     </div>

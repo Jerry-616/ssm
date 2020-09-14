@@ -122,6 +122,10 @@
                                     <td>${user.phone}</td>
                                     <td class="text-center">
                                         <button type="button" class="btn bg-olive btn-xs"
+                                                onclick="location.href='${pageContext.request.contextPath}/user/toUpdateUser?id=${user.userid}'">
+                                            编辑
+                                        </button>
+                                        <button type="button" class="btn bg-olive btn-xs"
                                                 onclick="location.href='${pageContext.request.contextPath}/user/deleteUser?id=${user.userid}'">
                                             删除
                                         </button>

@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.updateUser(user);
     }
 
-    public User queryUserById(int id) {
+    public User queryUserById(Integer id) {
         return userMapper.queryUserById(id);
     }
 
@@ -41,6 +41,6 @@ public class UserServiceImpl implements UserService {
 
     public User login(String username,String password) {
         User user=this.userMapper.login(username,password);
-        return user;
+            return user;
     }
 }

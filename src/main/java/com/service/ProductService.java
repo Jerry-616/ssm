@@ -26,4 +26,5 @@ public interface ProductService {
 
     //按名查询Product
     Product queryProductByName(String productname);
+
 }

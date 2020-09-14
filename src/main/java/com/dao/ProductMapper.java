@@ -25,4 +25,5 @@ public interface ProductMapper {
 
     //按名查询Product
     Product queryProductByName(@Param("productname") String productname);
+
 }

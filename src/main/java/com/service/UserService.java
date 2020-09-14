@@ -1,6 +1,5 @@
 package com.service;
 
-import com.pojo.Product;
 import com.pojo.User;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public interface UserService {
     int updateUser(User user);
 
     //根据id查询,返回一个User
-    User queryUserById(int id);
+    User queryUserById(Integer id);
 
     //查询全部Usert,返回list集合
     List<User> queryAllUser();

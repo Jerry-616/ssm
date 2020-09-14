@@ -6,7 +6,7 @@
 		<ul class="sidebar-menu">
 			<li class="header">菜单</li>
 			<li id="index">
-				<a href="${pageContext.request.contextPath}/index.jsp">
+				<a href="${pageContext.request.contextPath}/jump/jumpindex">
 					<i class="fa fa-list-alt"></i>
 					<span>首页</span>
 				</a>
@@ -38,10 +38,6 @@
 					<li id="allProduct">
 						<a href="${pageContext.request.contextPath}/product/allProduct?page=1&size=4">
 							<i class="fa fa-circle-o"></i> 商品管理</a>
-					</li>
-					<li id="system-setting">
-						<a href="${pageContext.request.contextPath}/orders/findAll.do?page=1&size=4">
-							<i class="fa fa-circle-o"></i> 订单管理</a>
 					</li>
 				</ul>
 			</li>

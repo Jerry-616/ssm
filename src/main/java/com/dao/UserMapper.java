@@ -1,5 +1,4 @@
 package com.dao;
-import com.pojo.Product;
 import com.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,11 +22,12 @@ public interface UserMapper {
     int updateUser(User user);
 
     //根据id查询,返回一个User
-    User queryUserById(@Param("userid")int id);
+    User queryUserById(@Param("userid")Integer id);
 
     //查询全部User,返回list集合
     List<User> queryAllUser();
 
     //按名查询User
     User queryUserByName(@Param("username") String username);
+
 }

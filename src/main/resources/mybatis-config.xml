@@ -3,14 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
     <typeAliases>
         <package name="com.pojo"/>
     </typeAliases>
     <mappers>
         <mapper resource="com/dao/ProductMapper.xml"/>
         <mapper resource="com/dao/UserMapper.xml"/>
+        <mapper resource="com/dao/AdminMapper.xml"/>
     </mappers>
-
-
 </configuration>

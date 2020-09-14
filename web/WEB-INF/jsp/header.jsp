@@ -3,13 +3,11 @@
 
 <!-- 页面头部 -->
 <header class="main-header">
-	<!-- Logo -->
-	<a href="all-admin-index.html" class="logo">
-		<span class="logo-mini"><b>数据</b></span>
-		<span class="logo-lg"><b>数据</b>后台管理</span>
+	<a href="${pageContext.request.contextPath}/jump/jumpbackindex" class="logo">
+		<span class="logo-mini"><b>商城</b></span>
+		<span class="logo-lg"><b>商城</b>后台管理</span>
 	</a>
 	<nav class="navbar navbar-static-top">
-		<!-- Sidebar toggle button-->
 		<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
 		   role="button"> <span class="sr-only">Toggle navigation</span>
 		</a>
@@ -20,15 +18,14 @@
 					<a href="#" cl ass="dropdown-toggle" data-toggle="dropdown">
 						<img src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
 						class="user-image" alt="User Image"> <span class="hidden-xs">
-							未登录
+						admin
 					</span></a>
 
 					<ul class="dropdown-menu">
-						<!-- User image -->
 						<li class="user-header"><img
 								src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
 								class="img-circle" alt="User Image"></li>
-						<!-- Menu Footer-->
+
 						<li class="user-footer">
 							<div class="pull-left">
 								<a href="#" class="btn btn-default btn-flat">修改密码</a>
@@ -38,7 +35,8 @@
 								   class="btn btn-default btn-flat">注销</a>
 							</div>
 						</li>
-					</ul></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</nav>
